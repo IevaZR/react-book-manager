@@ -38,6 +38,7 @@
     font-family: 'Gilda Display', serif;
     font-weight: 900;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .BlackBtn {
@@ -47,6 +48,7 @@
 
 .WhiteBtn {
     border: solid 2px black;
+    background-color: white;
 }
 
 .HeroSectionImageWrapper {

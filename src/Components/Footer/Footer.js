@@ -5,16 +5,17 @@ const Footer = () => {
   return (
     <div className="FooterWrapper">
       <div className="FooterNewsletterWrapper">
-        <div className="FooterNewsletterText"></div>
-        <input className="FooerNewsletterInput" placeholder="Email" />
-        <button className="FooterNewsletterButton">Submit</button>
+        <h6>Subsribe to our newsletter</h6>
+        <input placeholder="Email" />
+        <p>Thank you for subscribing!</p>
+        <button type="button">Submit</button>
       </div>
       <div className="FooterContactInfoWrapper">
+        <h6>Contacts</h6>
         <p>123 Main Streer, City</p>
         <p>+123 45678 910</p>
         <p>info@bookify.com</p>
       </div>
-      <p>Hello</p>
     </div>
   );
 };

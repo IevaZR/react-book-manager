@@ -1,0 +1,9 @@
+.BookPageMainSectionWrapper {
+    min-height: 90vh;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 10% 1rem 10%;
+    align-items: center;
+    box-sizing: border-box;
+}
