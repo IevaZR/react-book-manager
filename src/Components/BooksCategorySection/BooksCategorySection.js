@@ -27,10 +27,10 @@ const BooksCategorySection = () => {
           <img src={NonFictionalBooks} alt="non-fictional-books" />
         </div>
         <div className="BooksCategorySectionTopBooksDescriptionWrapper">
-          <h2>Top Fiction Books</h2>
+          <h2>Top Non-Fiction Books</h2>
           <p>
-            Browse through our curated collection of top fiction books and get
-            lost in captivating stories and imaginative worlds.
+            Explore our handpicked selection of top non-fiction books that cover
+            a wide range of topics and provide valuable knowledge and insights.
           </p>
           <button>
             Read more <img src={Arrow} alt="arrow" />
