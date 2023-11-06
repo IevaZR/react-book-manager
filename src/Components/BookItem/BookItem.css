@@ -1,0 +1,24 @@
+.BookWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.BookWrapper img {
+    height: 200px;
+    object-fit: contain;
+}
+
+.BookWrapper h5 {
+    font-family: "Gilda Display", serif;
+    font-size: 15px;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.BookWrapper p {
+    font-family: "Gilda Display", serif;
+    font-size: 15px;
+    margin: 0 0 0.5rem 0;
+}
