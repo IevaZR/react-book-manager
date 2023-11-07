@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./AboutBookPopup.css";
+import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const AboutBookPopup = ({ book }) => {
+  const { isPopupOpen, closePopup } = usePopup();
+
+  const handlePopupClose = (event) => {
+    const popupElement = document.querySelector(".AboutBookPopup");
+    if (popupElement && !popupElement.contains(event.target)) {
+      closePopup();
+    }
+  };
+
+  useEffect(() => {
+    if (isPopupOpen) {
+      document
+        .querySelector(".AboutBookPopupWrapper")
+        .addEventListener("click", handlePopupClose);
+    }
+  }, [isPopupOpen]);
+
   return (
     <div className="AboutBookPopupWrapper">
       <div className="AboutBookPopup">
@@ -27,8 +45,12 @@ const AboutBookPopup = ({ book }) => {
             posuere.
           </p>
           <div className="AboutBookPopupButtonWrapper">
-            <button className="AboutBookPopupButton WhiteBtn">Buy on Amazon</button>
-            <button className="AboutBookPopupButton BlackBtn">Add to Favourites</button>
+            <button className="AboutBookPopupButton WhiteBtn">
+              Buy on Amazon
+            </button>
+            <button className="AboutBookPopupButton BlackBtn">
+              Add to Favourites
+            </button>
           </div>
         </div>
       </div>

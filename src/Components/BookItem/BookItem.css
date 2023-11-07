@@ -6,23 +6,44 @@
     cursor: pointer;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .BookWrapper img {
-    height: 200px;
+    height: 300px;
     object-fit: contain;
 }
 
 .BookWrapper h5 {
     font-family: "Gilda Display", serif;
     font-size: 15px;
-    margin: 1rem 0 0.5rem 0;
+    margin: 1rem 0 0 0;
     height: 2rem;
 }
 
-.BookWrapper p {
+.BookWrapperInfo {
     font-family: "Gilda Display", serif;
     font-size: 15px;
-    margin: 0 0 0.5rem 0;
+    margin: 0.5rem 0 0.5rem 0;
     height: 1.5rem;
+}
+
+.BookNumber {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-image: url("./../../Assets/gold-star.png");
+    background-size: 65px;
+    background-repeat: no-repeat;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BookNumber p {
+    font-family: "Gilda Display", serif;
+    font-size: 25px;
+    margin: 0.5rem 0 0 0;
 }

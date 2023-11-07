@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookItem/BookItem";
 import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
+import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const BookPageMainSection = () => {
   const [nytBookData, setNytBookData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { isPopupOpen, openPopup } = usePopup();
 
   useEffect(() => {
     fetchBooks();
@@ -23,7 +25,6 @@ const BookPageMainSection = () => {
       })
       .then((json) => {
         setNytBookData(json.results);
-        console.log(json.results);
         setIsLoading(false);
       });
   };
@@ -33,6 +34,10 @@ const BookPageMainSection = () => {
       console.log(nytBookData[0].book_details[0].primary_isbn10);
   }, [nytBookData]);
 
+  const openAboutBook = (book) => {
+    openPopup();
+  };
+
   return (
     <div className="BookPageMainSectionWrapper">
       <div className="BookPageTopBooksSectionWrapper">
@@ -41,8 +46,13 @@ const BookPageMainSection = () => {
           {isLoading ? (
             <p>Loading ...</p>
           ) : (
-            nytBookData?.map((book) => (
-              <BookItem key={book.book_details[0].primary_isbn10} book={book} />
+            nytBookData?.map((book, index) => (
+              <BookItem
+                key={book.book_details[0].primary_isbn10}
+                book={book}
+                index={index}
+                openAboutBook={openAboutBook}
+              />
             ))
           )}
         </div>
@@ -65,7 +75,7 @@ const BookPageMainSection = () => {
           <BookItem />
         </div>
       </div>
-      {/* <AboutBookPopup/> */}
+      {isPopupOpen && <AboutBookPopup />}
     </div>
   );
 };
