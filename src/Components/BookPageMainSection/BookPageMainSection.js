@@ -86,3 +86,4 @@ export default BookPageMainSection;
 //TODO Make book carousel
 //TODO Add 'jump to non-fiction books' button
 //TODO Add back to top button
+//TODO Kā rīkties ar to, ka tiek sasniegts API calls limits?

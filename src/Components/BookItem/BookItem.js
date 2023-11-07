@@ -44,14 +44,18 @@ const BookItem = ({ book, index, openAboutBook }) => {
 
   return (
     <div className="BookWrapper" onClick={openPopup}>
-      {bookCover ? (
-        <img src={bookCover} alt="book-cover" />
-      ) : (
-        <img
-          src=" https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png"
-          alt="book-cover"
-        />
-      )}
+      <div className="BookImageWrapper">
+        {" "}
+        {bookCover ? (
+          <img src={bookCover} alt="book-cover" className="BookImage" />
+        ) : (
+          <img
+            src=" https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png"
+            alt="book-cover-loading"
+            className="BookImageLoading"
+          />
+        )}
+      </div>
 
       <h5>{book?.book_details[0].title}</h5>
       <p className="BookWrapperInfo">by {book?.book_details[0].author}</p>
