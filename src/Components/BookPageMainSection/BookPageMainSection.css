@@ -23,8 +23,11 @@
 }
 
 .BookPageTopBooksWrapper {
-    margin: 2rem 0 2rem 0;
-    width: 100%;
-    display: flex;
-    gap: 2rem;
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1rem;
+  justify-content: center;
 }

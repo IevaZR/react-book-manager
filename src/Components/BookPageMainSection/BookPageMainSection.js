@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookItem/BookItem";
+import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
 
 const BookPageMainSection = () => {
   const [nytBookData, setNytBookData] = useState([]);
@@ -40,7 +41,7 @@ const BookPageMainSection = () => {
           {isLoading ? (
             <p>Loading ...</p>
           ) : (
-            nytBookData.map((book) => (
+            nytBookData?.map((book) => (
               <BookItem key={book.book_details[0].primary_isbn10} book={book} />
             ))
           )}
@@ -64,6 +65,7 @@ const BookPageMainSection = () => {
           <BookItem />
         </div>
       </div>
+      {/* <AboutBookPopup/> */}
     </div>
   );
 };
@@ -71,3 +73,6 @@ const BookPageMainSection = () => {
 export default BookPageMainSection;
 
 //TODO Hide my API key (var nytimesKey = config.NYT_KEY;  -> is this useful?)
+//TODO Make book carousel
+//TODO Add 'jump to non-fiction books' button
+//TODO Add back to top button

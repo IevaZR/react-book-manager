@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    justify-content: center;
+    text-align: center;
 }
 
 .BookWrapper img {
@@ -15,10 +17,12 @@
     font-family: "Gilda Display", serif;
     font-size: 15px;
     margin: 1rem 0 0.5rem 0;
+    height: 2rem;
 }
 
 .BookWrapper p {
     font-family: "Gilda Display", serif;
     font-size: 15px;
     margin: 0 0 0.5rem 0;
+    height: 1.5rem;
 }
