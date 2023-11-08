@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='NavbarWrapper'>
-        <div className='NavbarLogoWrapper'><img src={Logo} alt="Bookify-Logo" className='NavbarLogo'/></div>
+        <div className='NavbarLogoWrapper'><Link to="/"><img src={Logo} alt="Bookify-Logo" className='NavbarLogo'/></Link></div>
         <div className='NavbarLinksWrapper'>
             <Link to="/" className='NavbarLink'>Home</Link>
-            <Link to="/books" className='NavbarLink'>Books</Link>
+            <Link to="/books" className='NavbarLink'>Book TOP</Link>
             <Link to="/login" className='NavbarLink'>Login</Link>
+            <Link to="/user" className='NavbarLink'>My Books</Link>
         </div>
     </div>
   )

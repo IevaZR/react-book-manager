@@ -1,0 +1,51 @@
+.UserProfileWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.UserProfileMenu {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.UserProfileMenuButton {
+    height: 3rem;
+    width: 200px;
+    border-radius: 20px 0 0 20px;
+    border: 1px solid black;
+    border-right: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Gilda Display', serif;
+    font-size: 15px;
+    background-color: rgb(229, 229, 229);
+}
+
+.List {
+    z-index: 10;
+}
+
+.Finished {
+    z-index: 9;
+    margin-top: -3px;
+}
+
+.Profile {
+    z-index: 8;
+    margin-top: -3px;
+}
+
+.BtnActive {
+    z-index: 999;
+    background-color: white;
+    width: 201px;
+}
+
+.UserProfileMainSection {
+    width: 100%;
+    min-height: 80%;
+    flex: 2 1 0;
+    border: 1px solid black;
+    border-radius: 0 20px 20px 0;
+}

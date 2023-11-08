@@ -5,6 +5,7 @@ import BookPage from "./Pages/BookPage/BookPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import { PopupProvider } from "./HelperFunctions/PopupContext";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import UserPage from "./Pages/UserPage/UserPage";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/books" element={<BookPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/user" element={<UserPage />} />
         </Routes>
       </PopupProvider>
     </div>
