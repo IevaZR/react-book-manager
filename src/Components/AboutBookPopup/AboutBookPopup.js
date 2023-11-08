@@ -3,7 +3,8 @@ import "./AboutBookPopup.css";
 import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const AboutBookPopup = ({ book }) => {
-  const { isPopupOpen, closePopup, bookDetailsPopup } = usePopup();
+  const { isPopupOpen, closePopup, bookDetailsPopup, NYTbookDetails } =
+    usePopup();
 
   const handlePopupClose = (event) => {
     const popupElement = document.querySelector(".AboutBookPopup");
@@ -32,8 +33,12 @@ const AboutBookPopup = ({ book }) => {
         </div>
         <div className="AboutBookPopupInfoWrapper">
           <h3>{bookDetailsPopup.items[0].volumeInfo.title}</h3>
-          <p className="AboutBookPopupAuthor">by {bookDetailsPopup.items[0].volumeInfo.authors[0]}</p>
-          <p className="AboutBookPopupDescription">{bookDetailsPopup.items[0].volumeInfo.description}</p>
+          <p className="AboutBookPopupAuthor">
+            by {bookDetailsPopup.items[0].volumeInfo.authors[0]}
+          </p>
+          <p className="AboutBookPopupDescription">
+            {bookDetailsPopup.items[0].volumeInfo.description}
+          </p>
           <a
             href={bookDetailsPopup.items[0].volumeInfo.canonicalVolumeLink}
             target="_blank"
@@ -44,7 +49,11 @@ const AboutBookPopup = ({ book }) => {
           </a>
           <div className="AboutBookPopupButtonWrapper">
             <button className="AboutBookPopupButton WhiteBtn">
-              <a href={bookDetailsPopup.items[0].volumeInfo.canonicalVolumeLink}>
+              <a
+                href={NYTbookDetails.amazon_product_url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Buy on Amazon
               </a>
             </button>

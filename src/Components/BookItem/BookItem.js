@@ -5,9 +5,8 @@ import { usePopup } from "../../HelperFunctions/PopupContext";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
-  const { isPopupOpen, openPopup } = usePopup();
+  const { openPopup } = usePopup();
   const [localBookInfo, setLocalBookInfo] = useState()
-  const {bookDetailsPopup, setBoookDetailsPopup} = usePopup()
 
   useEffect(() => {
     if (book) {
@@ -43,7 +42,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
   };
 
   const openBookDetails = () => {
-    openPopup(localBookInfo)
+    openPopup(localBookInfo, book)
   };
 
   return (

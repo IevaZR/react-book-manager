@@ -9,11 +9,14 @@ export const usePopup = () => {
 export const PopupProvider = ({ children }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [bookDetailsPopup, setBookDetailsPopup] = useState(null)
+  const [NYTbookDetails, setNYTBookDetails] = useState(null)
 
-  const openPopup = (book) => {
+  const openPopup = (googleBook, nytBook) => {
     setIsPopupOpen(true); 
-    setBookDetailsPopup(book)
-    console.log(book)
+    setBookDetailsPopup(googleBook)
+    setNYTBookDetails(nytBook)
+    console.log(googleBook)
+    console.log(nytBook)
   };
 
   const closePopup = () => {
@@ -21,7 +24,7 @@ export const PopupProvider = ({ children }) => {
   };
 
   return (
-    <PopupContext.Provider value={{ isPopupOpen, openPopup, closePopup, bookDetailsPopup, setBookDetailsPopup }}>
+    <PopupContext.Provider value={{ isPopupOpen, openPopup, closePopup, bookDetailsPopup, setBookDetailsPopup, NYTbookDetails }}>
       {children}
     </PopupContext.Provider>
   );
