@@ -3,6 +3,7 @@ import "./BooksCategorySection.css";
 import Arrow from "./../../Assets/arrow.png";
 import FictionalBooks from "./../../Assets/fictional-books.png";
 import NonFictionalBooks from "./../../Assets/non-fictional-books.png";
+import { Link } from "react-router-dom";
 
 const BooksCategorySection = () => {
   return (
@@ -15,7 +16,7 @@ const BooksCategorySection = () => {
             lost in captivating stories and imaginative worlds.
           </p>
           <button>
-            Read more <img src={Arrow} alt="arrow" />
+            <Link to="/books">Read more <img src={Arrow} alt="arrow" /></Link>
           </button>
         </div>
         <div className="BooksCategorySectionTopBooksImageWrapper">
@@ -33,7 +34,7 @@ const BooksCategorySection = () => {
             a wide range of topics and provide valuable knowledge and insights.
           </p>
           <button>
-            Read more <img src={Arrow} alt="arrow" />
+            <Link to="/books#BookPageNonFiction">Read more <img src={Arrow} alt="arrow" /></Link>
           </button>
         </div>
       </div>

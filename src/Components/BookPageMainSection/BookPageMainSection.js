@@ -5,15 +5,17 @@ import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
 import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const BookPageMainSection = () => {
-  const [nytBookData, setNytBookData] = useState([]);
+  const [nytFictionBookData, setNytFictionBookData] = useState([]);
+  const [nytNonFictionBookData, setNytNonFictionBookData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { isPopupOpen, openPopup } = usePopup();
 
   useEffect(() => {
-    fetchBooks();
+    fetchFictionBooks();
+    fetchNonFictionBooks()
   }, []);
 
-  const fetchBooks = () => {
+  const fetchFictionBooks = () => {
     const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY  
     fetch(
       "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=" +
@@ -24,15 +26,28 @@ const BookPageMainSection = () => {
         return response.json();
       })
       .then((json) => {
-        setNytBookData(json.results);
+        setNytFictionBookData(json.results);
         setIsLoading(false);
       });
   };
 
-  useEffect(() => {
-    if (nytBookData.length > 0)
-      console.log(nytBookData[0].book_details[0].primary_isbn10);
-  }, [nytBookData]);
+  const fetchNonFictionBooks = () => {
+    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY  
+    fetch(
+      "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-nonfiction&api-key=" +
+        apiKey,
+      { method: "get" }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setNytNonFictionBookData(json.results);
+        setIsLoading(false);
+      });
+  };
+
+ 
 
 
   return (
@@ -43,7 +58,7 @@ const BookPageMainSection = () => {
           {isLoading ? (
             <p>Loading ...</p>
           ) : (
-            nytBookData?.map((book, index) => (
+            nytFictionBookData?.map((book, index) => (
               <BookItem
                 key={book.book_details[0].primary_isbn10}
                 book={book}
@@ -54,21 +69,19 @@ const BookPageMainSection = () => {
         </div>
       </div>
       <div className="BookPageTopBooksSectionWrapper">
-        <h1>Top Non-Fiction Books</h1>
+        <h1 id="BookPageNonFiction">Top Non-Fiction Books</h1>
         <div className="BookPageTopBooksWrapper">
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
-          <BookItem />
+        {isLoading ? (
+            <p>Loading ...</p>
+          ) : (
+            nytNonFictionBookData?.map((book, index) => (
+              <BookItem
+                key={book.book_details[0].primary_isbn10}
+                book={book}
+                index={index}
+              />
+            ))
+          )}
         </div>
       </div>
       {isPopupOpen && <AboutBookPopup />}
@@ -83,3 +96,4 @@ export default BookPageMainSection;
 //TODO Add 'jump to non-fiction books' button
 //TODO Add back to top button
 //TODO Kā rīkties ar to, ka tiek sasniegts API calls limits?
+//TODO Try plain Redux?

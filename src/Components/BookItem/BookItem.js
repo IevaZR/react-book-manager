@@ -62,7 +62,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
 
       <h5>{book?.book_details[0].title}</h5>
       <p className="BookWrapperInfo">by {book?.book_details[0].author}</p>
-      <p className="BookWrapperInfo">Year</p>
+      <p className="BookWrapperInfo">Weeks on TOP: {book?.weeks_on_list}</p>
       <div className="BookNumber">
         <p>{index + 1}</p>
       </div>
