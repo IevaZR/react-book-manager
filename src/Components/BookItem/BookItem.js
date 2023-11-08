@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
+import { usePopup } from "../../HelperFunctions/PopupContext";
 
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
+  const { isPopupOpen, openPopup } = usePopup();
+  const [localBookInfo, setLocalBookInfo] = useState()
+  const {bookDetailsPopup, setBoookDetailsPopup} = usePopup()
 
   useEffect(() => {
     if (book) {
@@ -14,7 +18,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
   const fetchBookCover = () => {
     if (book) {
       const ISBN = book?.book_details[0].primary_isbn10;
-      const apiKey = process.env.REACT_APP_API_KEY   
+      const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY   
       fetch(
         "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
           ISBN +
@@ -27,9 +31,9 @@ const BookItem = ({ book, index, openAboutBook }) => {
         })
         .then((data) => {
           if (data && data.items && data.items.length > 0) {
-            console.log(data?.items[0].volumeInfo.imageLinks.thumbnail);
             const bookCoverURL = data?.items[0].volumeInfo.imageLinks.thumbnail;
             setBookCover(bookCoverURL);
+            setLocalBookInfo(data)
           }
         })
         .catch((error) => {
@@ -38,12 +42,12 @@ const BookItem = ({ book, index, openAboutBook }) => {
     }
   };
 
-  const openPopup = (book) => {
-    openAboutBook(book);
+  const openBookDetails = () => {
+    openPopup(localBookInfo)
   };
 
   return (
-    <div className="BookWrapper" onClick={openPopup}>
+    <div className="BookWrapper" onClick={openBookDetails}>
       <div className="BookImageWrapper">
         {" "}
         {bookCover ? (

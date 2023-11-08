@@ -46,10 +46,22 @@
   margin-top: 0.5rem;
 }
 
-.AboutBookPopupInfoWrapper p {
+.AboutBookPopupAuthor {
   font-family: "Gilda Display", serif;
   font-size: 15px;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0
+}
+
+.AboutBookPopupDescription {
+  font-family: "Gilda Display", serif;
+  font-size: 15px;
+  margin: 2rem 0 0 0;
+}
+
+.AboutBookPopupLinkToGoogleBooks {
+  font-family: "Gilda Display", serif;
+  font-size: 15px;
+ margin: 0 0 1rem 0;
 }
 
 .AboutBookPopupButtonWrapper {
@@ -69,6 +81,10 @@
     font-weight: 900;
     font-size: 16px;
     cursor: pointer;
+}
+
+.AboutBookPopupButton a {
+  text-decoration: none;
 }
 
 .BlackBtn {

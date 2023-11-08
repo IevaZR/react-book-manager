@@ -14,7 +14,7 @@ const BookPageMainSection = () => {
   }, []);
 
   const fetchBooks = () => {
-    const apiKey = "unMaYVGPSAahMXvGuR9WAHfIVGkohBnV";
+    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY  
     fetch(
       "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=" +
         apiKey,
@@ -34,9 +34,6 @@ const BookPageMainSection = () => {
       console.log(nytBookData[0].book_details[0].primary_isbn10);
   }, [nytBookData]);
 
-  const openAboutBook = (book) => {
-    openPopup();
-  };
 
   return (
     <div className="BookPageMainSectionWrapper">
@@ -51,7 +48,6 @@ const BookPageMainSection = () => {
                 key={book.book_details[0].primary_isbn10}
                 book={book}
                 index={index}
-                openAboutBook={openAboutBook}
               />
             ))
           )}
@@ -82,7 +78,7 @@ const BookPageMainSection = () => {
 
 export default BookPageMainSection;
 
-//TODO Hide my API key (var nytimesKey = config.NYT_KEY;  -> is this useful?)
+
 //TODO Make book carousel
 //TODO Add 'jump to non-fiction books' button
 //TODO Add back to top button
