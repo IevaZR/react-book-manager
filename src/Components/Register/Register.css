@@ -1,0 +1,75 @@
+.RegisterWrapper {
+    padding: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 500px;
+}
+
+.RegisterWrapper h3 {
+    font-family: 'Gilda Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0 0 2rem 0;
+}
+
+.RegisterForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.RegisterForm label {
+    font-family: 'Gilda Display', serif;
+    font-size: 18px;
+    margin: 0 0 0.5rem 0;
+}
+
+.RegisterForm input {
+    width: 300px;
+    margin: 0 0 1rem 0;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    height: 2rem;
+}
+
+.RegisterFormBtn {
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    margin: 1rem 0 0 0;
+    font-family: 'Gilda Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    border: solid 1px black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.RegisterNameWrapper, .RegisterEmailWrapper, .RegisterPasswordWrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.RegisterInputWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterThankYouMsg {
+    font-family: 'Gilda Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+}
+
+.RegisterThankYouMsg a {
+    color: black;
+}
+

@@ -97,3 +97,4 @@ export default BookPageMainSection;
 //TODO Add back to top button
 //TODO Kā rīkties ar to, ka tiek sasniegts API calls limits?
 //TODO Try plain Redux?
+//TODO Login with Google or Facebook

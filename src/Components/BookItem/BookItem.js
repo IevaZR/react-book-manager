@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
 import { usePopup } from "../../HelperFunctions/PopupContext";
-
+import { debounce } from "lodash";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
   const { openPopup } = usePopup();
-  const [localBookInfo, setLocalBookInfo] = useState()
+  const [localBookInfo, setLocalBookInfo] = useState();
 
   useEffect(() => {
     if (book) {
-      fetchBookCover();
+      fetchGoogleBookDataDebounced();
     }
   }, []);
 
-  const fetchBookCover = () => {
+  const fetchGoogleBookData = () => {
     if (book) {
       const ISBN = book?.book_details[0].primary_isbn10;
-      const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY   
+      const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
       fetch(
         "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
           ISBN +
@@ -32,7 +32,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
           if (data && data.items && data.items.length > 0) {
             const bookCoverURL = data?.items[0].volumeInfo.imageLinks.thumbnail;
             setBookCover(bookCoverURL);
-            setLocalBookInfo(data)
+            setLocalBookInfo(data);
           }
         })
         .catch((error) => {
@@ -41,8 +41,10 @@ const BookItem = ({ book, index, openAboutBook }) => {
     }
   };
 
+  const fetchGoogleBookDataDebounced = debounce(fetchGoogleBookData, 10000);
+  
   const openBookDetails = () => {
-    openPopup(localBookInfo, book)
+    openPopup(localBookInfo, book);
   };
 
   return (
