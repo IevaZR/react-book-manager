@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
-import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
+
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
@@ -14,12 +14,12 @@ const BookItem = ({ book, index, openAboutBook }) => {
   const fetchBookCover = () => {
     if (book) {
       const ISBN = book?.book_details[0].primary_isbn10;
-      const APIkey = "AIzaSyCs5n7vtJJsyIPeKe1iiZfcQYYrFo5jNW4";
+      const apiKey = process.env.REACT_APP_API_KEY   
       fetch(
         "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
           ISBN +
           "&key=" +
-          APIkey,
+          apiKey,
         { method: "get" }
       )
         .then((response) => {
