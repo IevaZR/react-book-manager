@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
 import { usePopup } from "../../HelperFunctions/PopupContext";
-import { debounce } from "lodash";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
@@ -10,7 +9,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
 
   useEffect(() => {
     if (book) {
-      fetchGoogleBookDataDebounced();
+      fetchGoogleBookData();
     }
   }, []);
 
@@ -40,8 +39,6 @@ const BookItem = ({ book, index, openAboutBook }) => {
         });
     }
   };
-
-  const fetchGoogleBookDataDebounced = debounce(fetchGoogleBookData, 10000);
   
   const openBookDetails = () => {
     openPopup(localBookInfo, book);
