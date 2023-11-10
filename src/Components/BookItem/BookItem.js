@@ -50,7 +50,6 @@ const BookItem = ({ book, index, openAboutBook }) => {
   return (
     <div className="BookWrapper" onClick={openBookDetails}>
       <div className="BookImageWrapper">
-        {" "}
         {bookCover ? (
           <img src={bookCover} alt="book-cover" className="BookImage" />
         ) : (
@@ -68,6 +67,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
       <div className="BookNumber">
         <p>{index + 1}</p>
       </div>
+     
     </div>
   );
 };

@@ -3,7 +3,7 @@ import "./UserFinishedBooks.css"
 
 const UserFinishedBooks = () => {
   return (
-    <div>UserFinishedBooks</div>
+    <div className='UserFinishedBooksWrapper'>UserFinishedBooks</div>
   )
 }
 
