@@ -1,5 +1,8 @@
 import React from "react";
 import "./UserProfile.css";
+import UserReadingList from "../UserReadingList/UserReadingList";
+import UserFinishedBooks from "../UserFinishedBooks/UserFinishedBooks";
+import UserProfileInfo from "../UserProfileInfo/UserProfileInfo";
 
 const UserProfile = () => {
   return (
@@ -13,7 +16,11 @@ const UserProfile = () => {
           Update Prodile Info
         </button>
       </div>
-      <div className="UserProfileMainSection"></div>
+      <div className="UserProfileMainSection">
+        <UserReadingList/>
+        <UserFinishedBooks/>
+        <UserProfileInfo/>
+      </div>
     </div>
   );
 };
