@@ -1,9 +1,12 @@
 import React from 'react'
 import "./UserFinishedBooks.css"
+import UserFinishedBookItem from '../UserFinishedBookItem/UserFinishedBookItem'
 
 const UserFinishedBooks = () => {
   return (
-    <div className='UserFinishedBooksWrapper'>UserFinishedBooks</div>
+    <div className='UserFinishedBooksWrapper'>
+      <UserFinishedBookItem/>
+    </div>
   )
 }
 

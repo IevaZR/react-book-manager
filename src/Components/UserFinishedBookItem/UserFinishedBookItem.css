@@ -1,4 +1,4 @@
-.UserBookItemWrapper {
+.UserFinishedBookItemWrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,36 +9,36 @@
   font-family: "Gilda Display", serif;
 }
 
-.UserBookImageWrapper {
+.UserFinishedBookImageWrapper {
   height: 250px;
   display: flex;
   cursor: pointer;
 }
 
-.UserBookImage {
+.UserFinishedBookImage {
   height: 250px;
   object-fit: contain;
 }
 
-.UserBookItemWrapper h5 {
+.UserFinishedBookItemWrapper h5 {
   font-size: 1rem;
   margin: 0.5rem 0 0 0;
   cursor: pointer;
 }
 
-.UserBookItemWrapper p {
+.UserFinishedBookItemWrapper p {
   font-size: 0.8rem;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
 }
 
-.UserBookItemButtonsWrapper {
+.UserFinishedBookItemButtonsWrapper {
   margin-bottom: 2rem;
   display: flex;
   gap: 0.5rem;
 }
 
-.UserBookItemRemoveButton {
+.UserFinishedBookItemRemoveButton {
   font-family: "Gilda Display", serif;
   color: red;
   font-size: 0.8rem;
@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 
-.UserBookItemMarkAsReadButton {
+.UserFinishedBookItemMarkAsReadButton {
   border-radius: 20px;
   border: none;
   background-color: transparent;
