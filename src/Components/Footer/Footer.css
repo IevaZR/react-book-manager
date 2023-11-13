@@ -48,6 +48,10 @@
     margin: 0;
 }
 
+.ErrorMsg {
+    color: red;
+}
+
 .FooterContactInfoWrapper {
     display: flex;
     flex-direction: column;

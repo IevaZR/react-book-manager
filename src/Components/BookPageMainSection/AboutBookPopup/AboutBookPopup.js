@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./AboutBookPopup.css";
-import { usePopup } from "./../../HelperFunctions/PopupContext";
+import { usePopup } from "../../../HelperFunctions/PopupContext";
 
 const AboutBookPopup = ({ book }) => {
   const { isPopupOpen, closePopup, bookDetailsPopup, NYTbookDetails } =

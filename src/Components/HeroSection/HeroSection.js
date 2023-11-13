@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeroSection.css";
 import BookReadersCollage from "../../Assets/book-readers-collage.jpg"
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -11,8 +12,8 @@ const HeroSection = () => {
         top fiction and non-fiction books available.{" "}
       </p>
       <div className="HeroSectionButtonsWrapper">
-        <button className="HeroSectionButton WhiteBtn">Login</button>
-        <button className="HeroSectionButton BlackBtn">Join Now</button>
+        <button className="HeroSectionButton WhiteBtn"><Link to="/login">Login</Link></button>
+        <button className="HeroSectionButton BlackBtn"><Link to="/register">Join Now</Link></button>
       </div>
       <div className="HeroSectionImageWrapper">
         {/* <img src={BookReadersCollage} alt="Book-readers"/> */}

@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors"
 import dotenv from "dotenv"
 import userRoute from "./routes/userRoute.js"
+import emailRoute from "./routes/emailRoute.js"
 
 const app = express();
 const port = 3009;
@@ -24,6 +25,7 @@ const connectionToDB = async() => {
 }
 
 app.use('/user', userRoute)
+app.use('/email', emailRoute)
 
 app.listen(port, () => {
     connectionToDB()

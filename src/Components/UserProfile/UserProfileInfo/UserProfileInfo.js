@@ -1,6 +1,6 @@
 import React from "react";
 import "./UserProfileInfo.css";
-import EditIcon from "./../../Assets/edit-icon.png";
+import EditIcon from "./../../../Assets/edit-icon.png";
 
 const UserProfileInfo = () => {
   return (

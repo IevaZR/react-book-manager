@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./UserProfile.css";
-import UserReadingList from "../UserReadingList/UserReadingList";
-import UserFinishedBooks from "../UserFinishedBooks/UserFinishedBooks";
-import UserProfileInfo from "../UserProfileInfo/UserProfileInfo";
+
+import UserFinishedBooks from "./UserFinishedBooks/UserFinishedBooks";
+import UserProfileInfo from "./UserProfileInfo/UserProfileInfo";
+import UserReadingList from "./UserReadingList/UserReadingList";
 
 const UserProfile = () => {
   const [userReadingListVisible, setUserReadingListVisible] = useState(true);

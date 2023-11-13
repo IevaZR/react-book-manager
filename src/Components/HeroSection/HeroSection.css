@@ -1,65 +1,73 @@
 .HeroSectionWrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 10% 1rem 10%;
-    align-items: center;
-    height: 90vh;
-    box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 10% 1rem 10%;
+  align-items: center;
+  height: 90vh;
+  box-sizing: border-box;
 }
 
 .HeroSectionHeading {
-    font-family: 'Gilda Display', serif;
-    font-size: 100px;
-    font-weight: 400;
-    width: 80%;
-    text-align: center;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+  font-family: "Gilda Display", serif;
+  font-size: 100px;
+  font-weight: 400;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .HeroSectionText {
-    font-family: 'Gilda Display', serif;
-    font-size: 18px;
-    width: 60%;
-    text-align: center;
-    margin-bottom: 3rem;
+  font-family: "Gilda Display", serif;
+  font-size: 18px;
+  width: 60%;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .HeroSectionButtonsWrapper {
-   display: flex;
-   gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .HeroSectionButton {
-    width: 120px;
-    height: 50px;
-    border-radius: 30px;
-    font-family: 'Gilda Display', serif;
-    font-weight: 900;
-    font-size: 16px;
-    cursor: pointer;
+  width: 120px;
+  height: 50px;
+  border-radius: 30px;
+  font-family: "Gilda Display", serif;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 .BlackBtn {
-    background-color:black;
-    color: white;
+  background-color: black;
+  color: white !important;
 }
 
 .WhiteBtn {
-    border: solid 2px black;
-    background-color: white;
+  border: solid 2px black;
+  background-color: white;
+  color: black !important;
 }
 
 .HeroSectionImageWrapper {
-    /* background-color: antiquewhite; */
-    width: 100%;
-    height: 100%;
-    margin-top: 2rem;
-    box-sizing: border-box;
-    background-image: url(./../../Assets/book-readers-collage-2.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  background-image: url(./../../Assets/book-readers-collage-2.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-

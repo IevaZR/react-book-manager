@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
-import { usePopup } from "../../HelperFunctions/PopupContext";
+import { usePopup } from "../../../HelperFunctions/PopupContext";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");

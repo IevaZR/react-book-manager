@@ -1,6 +1,6 @@
 import React from 'react'
 import "./UserFinishedBooks.css"
-import UserFinishedBookItem from '../UserFinishedBookItem/UserFinishedBookItem'
+import UserFinishedBookItem from './UserFinishedBookItem/UserFinishedBookItem'
 
 const UserFinishedBooks = () => {
   return (

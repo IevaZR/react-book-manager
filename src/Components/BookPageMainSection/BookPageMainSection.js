@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
-import BookItem from "../BookItem/BookItem";
-import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
+import BookItem from "../BookPageMainSection/BookItem/BookItem";
+import AboutBookPopup from "../BookPageMainSection/AboutBookPopup/AboutBookPopup";
 import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const BookPageMainSection = () => {
