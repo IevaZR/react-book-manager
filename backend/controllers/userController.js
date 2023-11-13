@@ -62,3 +62,28 @@ export const updateUser = async (req, res) => {
     res.status(400).send(error);
   }
 };
+
+export const loginUser = async (req, res) => {
+  try {
+    const foundUser = await userModel.findOne({ email: req.body.email });
+    if (!foundUser) {
+      return res.sendStatus(404).send("Username or Password is incorrect!");
+    }
+    const isUserPasswordCorrect = bcrypt.compareSync(
+      req.body.password.toString(),
+      foundUser.password
+    );
+
+    if (!isUserPasswordCorrect) {
+      return res.status(404).send("Username or Password is incorrect!");
+    }
+
+    if (isUserPasswordCorrect) {
+      console.log("Logged in");
+      res.status(200).send("Authorized");
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+};

@@ -56,3 +56,9 @@
     text-decoration: none;
     color: black;
 }
+
+.LoginErrorMsg {
+    margin: 0;
+    color: red;
+    font-size: 10px;
+}
