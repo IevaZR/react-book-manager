@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "../../..//Redux/userSlice";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import AboutBookPopup from "./AboutBookPopup/AboutBookPopup";
+import AddToFavouritesBtn from "../../AddToFavouritesBtn/AddToFavouritesBtn";
+import RemoveFromFavouritesBtn from "../../RemoveFromFavouritesBtn/RemoveFromFavouritesBtn";
+import { Link } from "react-router-dom";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
   const [GoogleBookInfo, setGoogleBookInfo] = useState();
   const currentUser = useSelector((state) => state.user.currentUser);
   const [bookInUserReadinList, setbookInUserReadinList] = useState(false);
-  const dispatch = useDispatch();
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
- 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    if (book) {
-      fetchGoogleBookData();
-    }
+    // if (book) {
+    //   fetchGoogleBookData();
+    // }
     if (currentUser) {
       isBookInUserBooksList();
     }
-    setBookCover("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU")
-    console.log(book)
+    setBookCover(
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU"
+    );
   }, []);
 
   const fetchGoogleBookData = () => {
@@ -53,11 +53,11 @@ const BookItem = ({ book, index, openAboutBook }) => {
   };
 
   const openPopup = () => {
-   setIsPopupOpen(true);
+    setIsPopupOpen(true);
   };
 
   const closePopup = () => {
-   setIsPopupOpen(false);
+    setIsPopupOpen(false);
   };
 
   const isBookInUserBooksList = () => {
@@ -69,62 +69,8 @@ const BookItem = ({ book, index, openAboutBook }) => {
     setbookInUserReadinList(bookInUserBooksList);
   };
 
-  const addToMyBooks = () => {
-    let currentBook = {
-      title: book.book_details[0].title,
-      author: book.book_details[0].author,
-      bookCover: bookCover,
-      rating: null,
-    };
-    let currentUserReadingList = currentUser.readingListBooks;
-    let updatedCurrentUserReadingList =
-      currentUserReadingList.concat(currentBook);
-    let updatedUser = {
-      ...currentUser,
-      readingListBooks: updatedCurrentUserReadingList,
-    };
-
-    dispatch(setCurrentUser(updatedUser));
-    setbookInUserReadinList(true);
-
-    updateUserInDB(updatedUser);
-  };
-
-  const updateUserInDB = async (updatedUser) => {
-    try {
-      await axios.put(
-        `http://localhost:3009/user/update-user/${updatedUser.email}`,
-        updatedUser
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const removeFromMyBooks = () => {
-    let currentBook = {
-      title: book.book_details[0].title,
-      author: book.book_details[0].author,
-      bookCover: bookCover,
-      rating: null,
-    };
-    let updatedUserReadingList = [...currentUser.readingListBooks];
-
-    let bookIndexInArray = updatedUserReadingList.findIndex(
-      (book) => book.title === currentBook.title
-    );
-
-    updatedUserReadingList.splice(bookIndexInArray, 1);
-
-    let updatedUser = {
-      ...currentUser,
-      readingListBooks: updatedUserReadingList,
-    };
-
-    dispatch(setCurrentUser(updatedUser));
-    setbookInUserReadinList(false);
-
-    updateUserInDB(updatedUser);
+  const updatedUserReadingList = (value) => {
+    setbookInUserReadinList(value);
   };
 
   return (
@@ -145,28 +91,41 @@ const BookItem = ({ book, index, openAboutBook }) => {
         <p className="BookInfo">by {book?.book_details[0].author}</p>
         <p className="BookInfo">Weeks on TOP: {book?.weeks_on_list}</p>
       </div>
-      {!bookInUserReadinList && (
-        <button
-          className="AddToMyBooksBtn"
-          type="button"
-          onClick={addToMyBooks}
-        >
-          Add to My Books
-        </button>
-      )}
-      {bookInUserReadinList && (
-        <button
-          className="RemoveFromMyBooksBtn"
-          type="button"
-          onClick={removeFromMyBooks}
-        >
-          Remove from My Books
-        </button>
-      )}
+      <div>
+        {currentUser && (
+          <div>
+            {!bookInUserReadinList && (
+              <AddToFavouritesBtn
+                book={book}
+                bookCover={bookCover}
+                updatedUserBooksList={updatedUserReadingList}
+              />
+            )}
+            {bookInUserReadinList && (
+              <RemoveFromFavouritesBtn
+                book={book}
+                bookCover={bookCover}
+                updatedUserBooksList={updatedUserReadingList}
+              />
+            )}
+          </div>
+        )}
+        {!currentUser && <button className="BookItemLinkToLoginBtn"><Link to="/login">Add to My Books</Link></button>}
+      </div>
+
       <div className="BookNumber">
         <p>{index + 1}</p>
       </div>
-      {isPopupOpen && <AboutBookPopup book={book} bookCover={bookCover} googleBookInfo={GoogleBookInfo} closePopup={closePopup}/>}
+      {isPopupOpen && (
+        <AboutBookPopup
+          book={book}
+          bookCover={bookCover}
+          googleBookInfo={GoogleBookInfo}
+          closePopup={closePopup}
+          updatedUserBooksList={updatedUserReadingList}
+          bookInUserList={bookInUserReadinList}
+        />
+      )}
     </div>
   );
 };

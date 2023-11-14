@@ -12,8 +12,14 @@ export const userSlice = createSlice({
     logoutUser: (state) => {
       state.currentUser = null;
     },
+    setCurrentUserFavourites: (state, action) => {
+      state.currentUser = {
+        ...state.currentUser,
+        readingListBooks: action.payload,
+      };
+    },
   },
 });
 
-export const {setCurrentUser, logoutUser} = userSlice.actions
-export default userSlice.reducer
+export const { setCurrentUser, logoutUser } = userSlice.actions;
+export default userSlice.reducer;

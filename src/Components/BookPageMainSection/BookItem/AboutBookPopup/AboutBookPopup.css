@@ -5,11 +5,12 @@
   top: 0;
   left: 0;
   z-index: 999;
+  background-color: rgba(255, 255, 255, 0.626);
 }
 
 .AboutBookPopup {
   width: 60%;
-  background-color: #D7EEDD;
+  background-color: #d7eedd;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,39 +70,33 @@
 .AboutBookPopupLinkToGoogleBooks {
   font-family: "Gilda Display", serif;
   font-size: 15px;
- margin: 0 0 1rem 0;
- text-align: left;
+  margin: 0 0 1rem 0;
+  text-align: left;
 }
 
 .AboutBookPopupButtonWrapper {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .AboutBookPopupButton {
-    width: 150px;
-    height: 35px;
-    border-radius: 30px;
-    font-family: 'Gilda Display', serif;
-    font-weight: 900;
-    font-size: 16px;
-    cursor: pointer;
+  width: 150px;
+  height: 30px;
+  border-radius: 30px;
+  font-family: "Gilda Display", serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(223, 223, 223);
+
 }
 
 .AboutBookPopupButton a {
   text-decoration: none;
-}
-
-.BlackBtn {
-    background-color:black;
-    color: white;
-}
-
-.WhiteBtn {
-    border: solid 2px black;
-    background-color: white;
 }

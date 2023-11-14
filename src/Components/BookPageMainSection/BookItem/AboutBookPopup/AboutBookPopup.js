@@ -1,12 +1,25 @@
 import React, { useEffect } from "react";
 import "./AboutBookPopup.css";
+import AddToFavouritesBtn from "../../../AddToFavouritesBtn/AddToFavouritesBtn";
+import RemoveFromFavouritesBtn from "../../../RemoveFromFavouritesBtn/RemoveFromFavouritesBtn";
 
-const AboutBookPopup = ({ book, bookCover, googleBookInfo, closePopup }) => {
+const AboutBookPopup = ({
+  book,
+  bookCover,
+  googleBookInfo,
+  closePopup,
+  updatedUserBooksList,
+  bookInUserList,
+}) => {
   const handlePopupClose = (event) => {
     const popupElement = document.querySelector(".AboutBookPopup");
     if (popupElement && !popupElement.contains(event.target)) {
       closePopup();
     }
+  };
+
+  const updateUserFavourites = (value) => {
+    updatedUserBooksList(value);
   };
 
   useEffect(() => {
@@ -35,7 +48,11 @@ const AboutBookPopup = ({ book, bookCover, googleBookInfo, closePopup }) => {
               {book.book_details[0].description}
             </p>
             <a
-              href={googleBookInfo.items[0].volumeInfo.canonicalVolumeLink}
+              href={
+                googleBookInfo
+                  ? googleBookInfo.items[0].volumeInfo.canonicalVolumeLink
+                  : ""
+              }
               target="_blank"
               rel="noreferrer"
               className="AboutBookPopupLinkToGoogleBooks"
@@ -54,9 +71,20 @@ const AboutBookPopup = ({ book, bookCover, googleBookInfo, closePopup }) => {
                 Buy on Amazon
               </a>
             </button>
-            <button className="AboutBookPopupButton BlackBtn">
-              Add to Favourites
-            </button>
+            {!bookInUserList && (
+              <AddToFavouritesBtn
+                book={book}
+                bookCover={bookCover}
+                updatedUserBooksList={updateUserFavourites}
+              />
+            )}
+            {bookInUserList && (
+              <RemoveFromFavouritesBtn
+                book={book}
+                bookCover={bookCover}
+                updatedUserBooksList={updateUserFavourites}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -65,3 +93,5 @@ const AboutBookPopup = ({ book, bookCover, googleBookInfo, closePopup }) => {
 };
 
 export default AboutBookPopup;
+
+//TODO user favourites need to be global variable
