@@ -84,7 +84,7 @@ const BookPageMainSection = () => {
           )}
         </div>
       </div>
-      {isPopupOpen && <AboutBookPopup />}
+      {/* {isPopupOpen && <AboutBookPopup />} */}
     </div>
   );
 };

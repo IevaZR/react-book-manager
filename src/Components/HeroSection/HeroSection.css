@@ -61,6 +61,10 @@ a:visited {
   color: black !important;
 }
 
+.LogedInBtn {
+  width: 240px;
+}
+
 .HeroSectionImageWrapper {
   width: 100%;
   height: 100%;

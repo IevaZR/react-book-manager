@@ -52,10 +52,14 @@ export const deleteUser = async (req, res) => {
 export const updateUser = async (req, res) => {
   try {
     const user = await userModel.findOneAndUpdate(
-      { id: req.params.email },
+      { email: req.params.email },
       { $set: req.body },
       { new: true }
     );
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
     res.status(201).send(user);
   } catch (error) {
     console.log(error);
@@ -67,7 +71,7 @@ export const loginUser = async (req, res) => {
   try {
     const foundUser = await userModel.findOne({ email: req.body.email });
     if (!foundUser) {
-      return res.sendStatus(404).send("Username or Password is incorrect!");
+      return res.status(404).send("Username or Password is incorrect!");
     }
     const isUserPasswordCorrect = bcrypt.compareSync(
       req.body.password.toString(),

@@ -7,7 +7,7 @@ router.post('/create-user', createUser)
 router.get("/", getAllUsers)
 router.get("/get-user/:email", getUser)
 router.delete("/delete-user/:id", deleteUser)
-router.put("/update-user/:id", updateUser)
+router.put("/update-user/:email", updateUser)
 router.post('/login-user', loginUser)
 
 export default router

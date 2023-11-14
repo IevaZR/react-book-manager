@@ -6,7 +6,9 @@ import BooksCategorySection from '../../Components/BooksCategorySection/BooksCat
 import Footer from '../../Components/Footer/Footer'
 
 
+
 const HomePage = () => {
+  
   return (
     <div className='HomePageWrapper'>
         <Navbar/>

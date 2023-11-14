@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../Redux/userSlice";
@@ -13,6 +13,7 @@ const Login = () => {
   const [loginErrorMsg, setLoginErrorMsg] = useState(false);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setInputData((prev) => ({
@@ -29,6 +30,9 @@ const Login = () => {
       );
       if (data === "Authorized") {
         fetchUserData();
+        setTimeout(() => {
+          navigate("/user");
+        }, 1500);
       }
     } catch (error) {
       console.log(error);
