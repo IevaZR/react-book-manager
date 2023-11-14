@@ -52,6 +52,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      finished: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
       rating: {
         type: Number,
         required: false,
