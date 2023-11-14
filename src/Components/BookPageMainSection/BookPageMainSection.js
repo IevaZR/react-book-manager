@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookPageMainSection/BookItem/BookItem";
-import AboutBookPopup from "../BookPageMainSection/AboutBookPopup/AboutBookPopup";
-import { usePopup } from "./../../HelperFunctions/PopupContext";
 
 const BookPageMainSection = () => {
   const [nytFictionBookData, setNytFictionBookData] = useState([]);
   const [nytNonFictionBookData, setNytNonFictionBookData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { isPopupOpen, openPopup } = usePopup();
 
   useEffect(() => {
     fetchFictionBooks();

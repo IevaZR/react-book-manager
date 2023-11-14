@@ -1,11 +1,7 @@
 import React, { useEffect } from "react";
 import "./AboutBookPopup.css";
-import { usePopup } from "../../../HelperFunctions/PopupContext";
 
-const AboutBookPopup = ({ book }) => {
-  const { isPopupOpen, closePopup, bookDetailsPopup, NYTbookDetails } =
-    usePopup();
-
+const AboutBookPopup = ({ book, bookCover, googleBookInfo, closePopup }) => {
   const handlePopupClose = (event) => {
     const popupElement = document.querySelector(".AboutBookPopup");
     if (popupElement && !popupElement.contains(event.target)) {
@@ -14,43 +10,44 @@ const AboutBookPopup = ({ book }) => {
   };
 
   useEffect(() => {
-    if (isPopupOpen) {
-      document
-        .querySelector(".AboutBookPopupWrapper")
-        .addEventListener("click", handlePopupClose);
-    }
-  }, [isPopupOpen]);
+    document
+      .querySelector(".AboutBookPopupWrapper")
+      .addEventListener("click", handlePopupClose);
+  }, []);
 
   return (
     <div className="AboutBookPopupWrapper">
       <div className="AboutBookPopup">
         <div className="AboutBookPopupImageWrapper">
           <img
-            src={bookDetailsPopup.items[0].volumeInfo.imageLinks.thumbnail}
+            src={bookCover}
             alt="book-cover"
             className="AboutBookPopupImage"
           />
         </div>
         <div className="AboutBookPopupInfoWrapper">
-          <h3>{bookDetailsPopup.items[0].volumeInfo.title}</h3>
-          <p className="AboutBookPopupAuthor">
-            by {bookDetailsPopup.items[0].volumeInfo.authors[0]}
-          </p>
-          <p className="AboutBookPopupDescription">
-            {bookDetailsPopup.items[0].volumeInfo.description}
-          </p>
-          <a
-            href={bookDetailsPopup.items[0].volumeInfo.canonicalVolumeLink}
-            target="_blank"
-            rel="noreferrer"
-            className="AboutBookPopupLinkToGoogleBooks"
-          >
-            Read more on Google books
-          </a>
+          <div className="AboutBookPopupDetailsWrapper">
+            <h3>{book.book_details[0].title}</h3>
+            <p className="AboutBookPopupAuthor">
+              by {book.book_details[0].author}
+            </p>
+            <p className="AboutBookPopupDescription">
+              {book.book_details[0].description}
+            </p>
+            <a
+              href={googleBookInfo.items[0].volumeInfo.canonicalVolumeLink}
+              target="_blank"
+              rel="noreferrer"
+              className="AboutBookPopupLinkToGoogleBooks"
+            >
+              Read more on Google books
+            </a>
+          </div>
+
           <div className="AboutBookPopupButtonWrapper">
             <button className="AboutBookPopupButton WhiteBtn">
               <a
-                href={NYTbookDetails.amazon_product_url}
+                href={book.amazon_product_url}
                 target="_blank"
                 rel="noreferrer"
               >

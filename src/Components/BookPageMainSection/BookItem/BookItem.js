@@ -1,59 +1,63 @@
 import React, { useEffect, useState } from "react";
 import "./BookItem.css";
-import { usePopup } from "../../../HelperFunctions/PopupContext";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../..//Redux/userSlice";
 import axios from "axios";
-import AboutBookPopup from "../AboutBookPopup/AboutBookPopup";
+import AboutBookPopup from "./AboutBookPopup/AboutBookPopup";
 
 const BookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
-  const { isPopupOpen, openPopup } = usePopup();
-  const [localBookInfo, setLocalBookInfo] = useState();
+  const [GoogleBookInfo, setGoogleBookInfo] = useState();
   const currentUser = useSelector((state) => state.user.currentUser);
   const [bookInUserReadinList, setbookInUserReadinList] = useState(false);
   const dispatch = useDispatch();
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
  
 
   useEffect(() => {
     if (book) {
-      // fetchGoogleBookData();
+      fetchGoogleBookData();
     }
     if (currentUser) {
       isBookInUserBooksList();
     }
     setBookCover("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU")
+    console.log(book)
   }, []);
 
-  // const fetchGoogleBookData = () => {
-  //   if (book) {
-  //     const ISBN = book?.book_details[0].primary_isbn10;
-  //     const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
-  //     fetch(
-  //       "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
-  //         ISBN +
-  //         "&key=" +
-  //         apiKey,
-  //       { method: "get" }
-  //     )
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         if (data && data.items && data.items.length > 0) {
-  //           const bookCoverURL = data?.items[0].volumeInfo.imageLinks.thumbnail;
-  //           setBookCover(bookCoverURL);
-  //           setLocalBookInfo(data);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching book cover:", error);
-  //       });
-  //   }
-  // };
+  const fetchGoogleBookData = () => {
+    if (book) {
+      const ISBN = book?.book_details[0].primary_isbn10;
+      const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
+      fetch(
+        "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
+          ISBN +
+          "&key=" +
+          apiKey,
+        { method: "get" }
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (data && data.items && data.items.length > 0) {
+            const bookCoverURL = data?.items[0].volumeInfo.imageLinks.thumbnail;
+            setBookCover(bookCoverURL);
+            setGoogleBookInfo(data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching book cover:", error);
+        });
+    }
+  };
 
-  const openBookDetails = () => {
-    openPopup(localBookInfo, book);
+  const openPopup = () => {
+   setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+   setIsPopupOpen(false);
   };
 
   const isBookInUserBooksList = () => {
@@ -125,7 +129,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
 
   return (
     <div className="BookWrapper">
-      <div className="BookImageWrapper" onClick={openBookDetails}>
+      <div className="BookImageWrapper" onClick={openPopup}>
         {bookCover ? (
           <img src={bookCover} alt="book-cover" className="BookImage" />
         ) : (
@@ -137,7 +141,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
         )}
       </div>
       <div className="BookItemInfoWrapper">
-        <h5 onClick={openBookDetails}>{book?.book_details[0].title}</h5>
+        <h5 onClick={openPopup}>{book?.book_details[0].title}</h5>
         <p className="BookInfo">by {book?.book_details[0].author}</p>
         <p className="BookInfo">Weeks on TOP: {book?.weeks_on_list}</p>
       </div>
@@ -162,7 +166,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
       <div className="BookNumber">
         <p>{index + 1}</p>
       </div>
-      {isPopupOpen && <AboutBookPopup book/>}
+      {isPopupOpen && <AboutBookPopup book={book} bookCover={bookCover} googleBookInfo={GoogleBookInfo} closePopup={closePopup}/>}
     </div>
   );
 };
