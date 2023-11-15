@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./UserReadingList.css";
 import UserBookItem from "./UserBookItem/UserBookItem";
 import { useSelector } from "react-redux";
@@ -14,7 +14,7 @@ const UserReadingList = () => {
           currentUser.readingListBooks.map((book) => (
             <UserBookItem key={book.title} book={book} />
           ))}
-          {!currentUser && <p>No books in My Reading List</p>}
+          {currentUser && currentUser.readingListBooks.length === 0 && <p>No books in My Reading List</p>}
       </div>
     </div>
   );
