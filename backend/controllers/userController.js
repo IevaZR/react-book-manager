@@ -41,7 +41,7 @@ export const getUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const user = await userModel.deleteOne({ id: req.params._id });
+    await userModel.deleteOne({ _id: req.params._id });
     res.status(201).send("User delete successfully");
   } catch (error) {
     console.log(error);

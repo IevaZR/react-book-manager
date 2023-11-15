@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./UserProfileInfo.css";
 import EditIcon from "./../../../Assets/edit-icon.png";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "../../../Redux/userSlice";
+import { logoutUser, setCurrentUser } from "../../../Redux/userSlice";
 import axios from "axios";
 
 const UserProfileInfo = () => {
@@ -42,12 +42,23 @@ const UserProfileInfo = () => {
   };
 
   const updateUserInDB = async (updatedUser) => {
-    console.log(updatedUser)
+    console.log(updatedUser);
     try {
       await axios.put(
         `http://localhost:3009/user/update-user-by-id/${updatedUser._id}`,
         updatedUser
       );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteUser = async () => {
+    try {
+      await axios.delete(
+        `http://localhost:3009/user/delete-user/${currentUser._id}`
+      );
+      dispatch(logoutUser())
     } catch (error) {
       console.log(error);
     }
@@ -130,11 +141,17 @@ const UserProfileInfo = () => {
         type="button"
         className="UserProfileInfoFormBtn"
         onClick={updateUserInfo}
-        disabled={isNameEdited || isSurnameEdited || isEmailEdited ? false : true}
+        disabled={
+          isNameEdited || isSurnameEdited || isEmailEdited ? false : true
+        }
       >
         Save and Update
       </button>
-      <button type="button" className="UserProfileInfoFormDeleteBtn">
+      <button
+        type="button"
+        className="UserProfileInfoFormDeleteBtn"
+        onClick={deleteUser}
+      >
         Delete Profile
       </button>
     </div>
