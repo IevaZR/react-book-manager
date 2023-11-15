@@ -50,6 +50,11 @@
   cursor: pointer;
 }
 
+.UserProfileInfoFormBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .UserProfileInfoNameWrapper,
 .UserProfileInfoEmailWrapper,
 .UserProfileInfoPasswordWrapper {

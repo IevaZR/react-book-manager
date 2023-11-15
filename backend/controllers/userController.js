@@ -67,6 +67,24 @@ export const updateUser = async (req, res) => {
   }
 };
 
+export const updateUserById = async (req, res) => {
+  try {
+    const user = await userModel.findOneAndUpdate(
+      { _id: req.params._id },
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+    res.status(201).send(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+};
+
 export const loginUser = async (req, res) => {
   try {
     const foundUser = await userModel.findOne({ email: req.body.email });

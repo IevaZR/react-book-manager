@@ -11,6 +11,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
   const [GoogleBookInfo, setGoogleBookInfo] = useState();
   const currentUser = useSelector((state) => state.user.currentUser);
   const [bookInUserReadinList, setbookInUserReadinList] = useState(false);
+  const [bookInUserFinishedBookList, setbookInUserFinishedBookList] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
     // }
     if (currentUser) {
       isBookInUserBooksList();
+      isBookInUserFinishedBooksList()
     }
     setBookCover(
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU"
@@ -69,6 +71,15 @@ const BookItem = ({ book, index, openAboutBook }) => {
     setbookInUserReadinList(bookInUserBooksList);
   };
 
+  const isBookInUserFinishedBooksList = () => {
+    let userBooks = currentUser.finishedBooks;
+    let currentBookTitle = book.book_details[0].title;
+    const bookInUserFinishedBooksList = userBooks.some((userBook) => {
+      return userBook.title === currentBookTitle;
+    });
+    setbookInUserFinishedBookList(bookInUserFinishedBooksList);
+  };
+
   const updatedUserReadingList = (value) => {
     setbookInUserReadinList(value);
   };
@@ -94,20 +105,23 @@ const BookItem = ({ book, index, openAboutBook }) => {
       <div>
         {currentUser && (
           <div>
-            {!bookInUserReadinList && (
+            {!bookInUserReadinList && !bookInUserFinishedBookList && (
               <AddToFavouritesBtn
                 book={book}
                 bookCover={bookCover}
                 updatedUserBooksList={updatedUserReadingList}
               />
             )}
-            {bookInUserReadinList && (
+            {/* {bookInUserReadinList || bookInUserFinishedBookList && (
               <RemoveFromFavouritesBtn
                 book={book}
                 bookCover={bookCover}
                 updatedUserBooksList={updatedUserReadingList}
               />
-            )}
+            )} */}
+            {(bookInUserFinishedBookList || bookInUserReadinList) && (
+              <button className="BookAlreadyInMyBooks" disabled="true">Book already in My Books list</button>
+            )} 
           </div>
         )}
         {!currentUser && <button className="BookItemLinkToLoginBtn"><Link to="/login">Add to My Books</Link></button>}

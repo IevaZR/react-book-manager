@@ -3,6 +3,7 @@ import "./UserFinishedBookItem.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../../../Redux/userSlice";
 import axios from "axios";
+import BookRating from "../../../BookRating/BookRating";
 
 const UserFinishedBookItem = ({ book }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -49,6 +50,26 @@ const UserFinishedBookItem = ({ book }) => {
     updateUserInDB(updatedUser);
   };
 
+  const saveRating = (ratingValue) => {
+    let updatedBook = { ...book, rating: ratingValue };
+    let updatedUserFinishedList = [...currentUser.finishedBooks];
+
+    let bookIndexInFinishedBooksArray = updatedUserFinishedList.findIndex(
+      (bookItem) => bookItem.title === book.title
+    );
+
+    updatedUserFinishedList[bookIndexInFinishedBooksArray] = updatedBook;
+
+    let updatedUser = {
+      ...currentUser,
+      finishedBooks: updatedUserFinishedList,
+    };
+
+    dispatch(setCurrentUser(updatedUser));
+
+    updateUserInDB(updatedUser);
+  };
+
   const updateUserInDB = async (updatedUser) => {
     try {
       await axios.put(
@@ -83,9 +104,9 @@ const UserFinishedBookItem = ({ book }) => {
           Move to Unfinished
         </button>
       </div>
-      <div>
+      <div className="FinishedBookRatingWrapper">
         <p>My Rating</p>
-        <p>Stars</p>
+        <BookRating saveRating={saveRating} currentRating={book.rating} />
       </div>
     </div>
   );
