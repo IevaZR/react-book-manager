@@ -6,8 +6,13 @@
     justify-content: space-between;
     box-sizing: border-box;
     gap: 2rem;
-    background-color: #D7EEDD;
+    background-color: #e0dfdc;
     height: 150px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) -5px 0px 6px, rgba(0, 0, 0, 0.24) 5px 0px 6px, rgba(0, 0, 0, 0.24) 0px -5px 5px 5px, rgba(0, 0, 0, 0.24) 0px 5px 6px; */
+    box-shadow: rgba(0, 0, 0, 0.24) -5px 0px 6px, 
+            rgba(0, 0, 0, 0.24) 5px 0px 6px, 
+            rgba(0, 0, 0, 0.24) 0px -6px 7px, 
+            rgba(0, 0, 0, 0.24) 0px 5px 6px;
 }
 
 .FooterNewsletterWrapper {
@@ -71,3 +76,4 @@
     font-weight: 400;
     margin: 0;
 }
+

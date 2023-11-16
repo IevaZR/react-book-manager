@@ -8,7 +8,7 @@ const HeroSection = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   return (
     <div className="HeroSectionWrapper">
-      <h1 className="HeroSectionHeading">Dicover the Best Books</h1>
+      <h1 className="HeroSectionHeading">Dicover Must-Reads: The Best Sellers Collection</h1>
       <p className="HeroSectionText">
         Welcome to Bookify, your ultimate destination to explore and find the
         top fiction and non-fiction books available.{" "}
@@ -20,9 +20,9 @@ const HeroSection = () => {
       {currentUser && <div className="HeroSectionButtonsWrapper">
         <button className="HeroSectionButton LogedInBtn WhiteBtn"><Link to="/user">Go to My Books Page</Link></button>
       </div>}
-      <div className="HeroSectionImageWrapper">
+      {/* <div className="HeroSectionImageWrapper"> */}
         {/* <img src={BookReadersCollage} alt="Book-readers"/> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 };

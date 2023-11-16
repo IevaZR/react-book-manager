@@ -6,6 +6,8 @@
   align-items: center;
   box-sizing: border-box;
   gap: 2rem;
+  background-color: #eeede5;
+  box-shadow: rgba(0, 0, 0, 0.24) -5px 2px 6px, rgba(0, 0, 0, 0.24) 5px 2px 6px;
 }
 
 .BooksCategorySectionTopBooks {

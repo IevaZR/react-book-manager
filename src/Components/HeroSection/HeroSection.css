@@ -6,16 +6,23 @@
   align-items: center;
   height: 90vh;
   box-sizing: border-box;
+  background-image: url("./../../Assets/bookshelf.png");
+  box-shadow: rgba(0, 0, 0, 0.24) -5px 0px 6px, rgba(0, 0, 0, 0.24) 5px 0px 6px, rgba(0, 0, 0, 0.24) 0px -5px 6px, rgba(0, 0, 0, 0.24) 0px 5px 6px;
+  z-index: 10;
 }
 
 .HeroSectionHeading {
   font-family: "Gilda Display", serif;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 400;
   width: 80%;
   text-align: center;
   margin-bottom: 1rem;
   margin-top: 2rem;
+  background-color: rgba(37, 37, 37, 0.452);
+  border-radius: 10px;
+  color: white;
+  
 }
 
 .HeroSectionText {
@@ -24,6 +31,7 @@
   width: 60%;
   text-align: center;
   margin-bottom: 3rem;
+  color: rgba(255, 255, 255);
 }
 
 .HeroSectionButtonsWrapper {
