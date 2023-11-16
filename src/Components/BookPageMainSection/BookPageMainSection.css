@@ -18,20 +18,20 @@ html {
 
 .BookPageStickyBackground {
   background-image: url("./../../Assets/book-shelf.png");
- background-size: contain;
-  height: 500px;
+ background-size: cover;
+  min-height: 100vh;
   width: 111%;
   position: sticky;
   top: 0;
 }
 
 .BookShelfWrapper {
-  position: absolute;
   top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .BookPageTopBooksSectionWrapper {
@@ -132,4 +132,17 @@ html {
   grid-column-gap: 1.5rem;
   grid-row-gap: 1rem;
   justify-content: center;
+}
+
+.slideToLeft {
+  animation: slideLeft 0.5s forwards;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

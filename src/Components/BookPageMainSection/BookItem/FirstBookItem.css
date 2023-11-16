@@ -55,10 +55,16 @@
   margin-bottom: 0.5rem;
 }
 
-.BookInfo {
+.FirstBookInfo {
   font-family: "Gilda Display", serif;
   font-size: 15px;
   margin: 0.5rem 0 0 0;
+}
+
+.FirstBookInfoWeeks {
+  font-family: "Gilda Display", serif;
+  font-size: 15px;
+  margin: 0.5rem 0 2rem 0;
 }
 
 .FirstBookNumber {

@@ -129,7 +129,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
       </div>
 
       <div className="BookNumber">
-        <p>{index + 1}</p>
+        <p>{index + 2}</p>
       </div>
       {isPopupOpen && (
         <AboutBookPopup
