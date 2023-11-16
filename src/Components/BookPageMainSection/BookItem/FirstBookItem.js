@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "./BookItem.css";
+import "./FirstBookItem.css";
 import { useSelector } from "react-redux";
 import AboutBookPopup from "./AboutBookPopup/AboutBookPopup";
 import AddToFavouritesBtn from "../../AddToFavouritesBtn/AddToFavouritesBtn";
 import RemoveFromFavouritesBtn from "../../RemoveFromFavouritesBtn/RemoveFromFavouritesBtn";
 import { Link } from "react-router-dom";
 
-const BookItem = ({ book, index, openAboutBook }) => {
+const FirstBookItem = ({ book, index, openAboutBook }) => {
   const [bookCover, setBookCover] = useState("");
   const [GoogleBookInfo, setGoogleBookInfo] = useState();
   const currentUser = useSelector((state) => state.user.currentUser);
   const [bookInUserReadinList, setbookInUserReadinList] = useState(false);
-  const [bookInUserFinishedBookList, setbookInUserFinishedBookList] = useState(false);
+  const [bookInUserFinishedBookList, setbookInUserFinishedBookList] =
+    useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
@@ -20,12 +21,12 @@ const BookItem = ({ book, index, openAboutBook }) => {
     // }
     if (currentUser) {
       isBookInUserBooksList();
-      isBookInUserFinishedBooksList()
+      isBookInUserFinishedBooksList();
     }
     setBookCover(
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU"
     );
-    console.log(book)
+    console.log(book);
   }, []);
 
   const fetchGoogleBookData = () => {
@@ -86,10 +87,14 @@ const BookItem = ({ book, index, openAboutBook }) => {
   };
 
   return (
-    <div className="BookWrapper">
-      <div className="BookImageWrapper" onClick={openPopup}>
+    <div className="FirstBookWrapper">
+      <div className="FirstBookImageWrapper" onClick={openPopup}>
+        {" "}
+        <div className="FirstBookNumber">
+          <p>1</p>
+        </div>
         {bookCover ? (
-          <img src={bookCover} alt="book-cover" className="BookImage" />
+          <img src={bookCover} alt="book-cover" className="FirstBookImage" />
         ) : (
           <img
             src=" https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png"
@@ -102,35 +107,31 @@ const BookItem = ({ book, index, openAboutBook }) => {
         <h5 onClick={openPopup}>{book?.book_details[0].title}</h5>
         <p className="BookInfo">by {book?.book_details[0].author}</p>
         <p className="BookInfo">Weeks on TOP: {book?.weeks_on_list}</p>
-      </div>
-      <div>
-        {currentUser && (
-          <div>
-            {!bookInUserReadinList && !bookInUserFinishedBookList && (
-              <AddToFavouritesBtn
-                book={book}
-                bookCover={bookCover}
-                updatedUserBooksList={updatedUserReadingList}
-              />
-            )}
-            {/* {bookInUserReadinList || bookInUserFinishedBookList && (
-              <RemoveFromFavouritesBtn
-                book={book}
-                bookCover={bookCover}
-                updatedUserBooksList={updatedUserReadingList}
-              />
-            )} */}
-            {(bookInUserFinishedBookList || bookInUserReadinList) && (
-              <button className="BookAlreadyInMyBooks" disabled="true">Book already in My Books list</button>
-            )} 
-          </div>
-        )}
-        {!currentUser && <button className="BookItemLinkToLoginBtn"><Link to="/login">Add to My Books</Link></button>}
+        <div>
+          {currentUser && (
+            <div>
+              {!bookInUserReadinList && !bookInUserFinishedBookList && (
+                <AddToFavouritesBtn
+                  book={book}
+                  bookCover={bookCover}
+                  updatedUserBooksList={updatedUserReadingList}
+                />
+              )}
+              {(bookInUserFinishedBookList || bookInUserReadinList) && (
+                <button className="BookAlreadyInMyBooks" disabled="true">
+                  Book already in My Books list
+                </button>
+              )}
+            </div>
+          )}
+          {!currentUser && (
+            <button className="BookItemLinkToLoginBtn">
+              <Link to="/login">Add to My Books</Link>
+            </button>
+          )}
+        </div>
       </div>
 
-      <div className="BookNumber">
-        <p>{index + 1}</p>
-      </div>
       {isPopupOpen && (
         <AboutBookPopup
           book={book}
@@ -145,4 +146,4 @@ const BookItem = ({ book, index, openAboutBook }) => {
   );
 };
 
-export default BookItem;
+export default FirstBookItem;

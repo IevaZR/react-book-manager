@@ -1,12 +1,17 @@
-.AddToFavouritesBtn {
-    width: 200px;
-    height: 30px;
-    border-radius: 30px;
-    font-family: "Gilda Display", serif;
-    font-weight: 900;
-    font-size: 15px;
-    cursor: pointer;
-    border: solid 1px black;
-    background-color: white;
-    color: black;
+.AddToFavouritesBtn, .BookItemLinkToLoginBtn {
+    margin-top: 2rem;
+  height: 50px;
+  border-radius: 20px;
+  font-family: "Gilda Display", serif;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(#777773, #3a3932);
+  color: white !important;
+  }
+
+  
+  .WhiteBtn:hover {
+    background: linear-gradient(#acaba4, #eeede5);
   }

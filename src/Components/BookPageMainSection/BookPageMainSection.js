@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookPageMainSection/BookItem/BookItem";
+import FirstBookItem from "./BookItem/FirstBookItem";
 
 const BookPageMainSection = () => {
   const [nytFictionBookData, setNytFictionBookData] = useState([]);
   const [nytNonFictionBookData, setNytNonFictionBookData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [firstBook, setFirstBook] = useState({});
 
   useEffect(() => {
     fetchFictionBooks();
     fetchNonFictionBooks();
-    console.log(nytFictionBookData);
   }, []);
 
   const fetchFictionBooks = () => {
@@ -25,6 +26,10 @@ const BookPageMainSection = () => {
       })
       .then((json) => {
         setNytFictionBookData(json.results);
+        let filteredBooks = json.results.filter((book) => book.rank === 1);
+        console.log(filteredBooks);
+        setFirstBook(filteredBooks[0]);
+        console.log(firstBook)
         setIsLoading(false);
       });
   };
@@ -58,7 +63,19 @@ const BookPageMainSection = () => {
               compelling storytelling.
             </p>
           </div>
-          <div className="FirstBookWrapper"></div>
+          {isLoading ? (
+            <p>Loading ...</p>
+          ) : (
+            <div className="FirstBookBigWrapper">
+              {firstBook && Object.keys(firstBook).length > 0 ? (
+                <FirstBookItem
+                  book={firstBook}
+                />
+              ) : (
+                <p>No book available</p>
+              )}
+            </div>
+          )}
         </div>
         <div className="BookShelf"></div>
         <div className="BookShelfFront"></div>
@@ -73,7 +90,7 @@ const BookPageMainSection = () => {
       <div className="BookPageTopBooksSectionWrapper">
         <h1>Top Fiction Books</h1>
         <div className="BookPageTopBooksWrapper">
-          {isLoading ? (
+          {/* {isLoading ? (
             <p>Loading ...</p>
           ) : (
             nytFictionBookData?.map((book, index) => (
@@ -83,7 +100,7 @@ const BookPageMainSection = () => {
                 index={index}
               />
             ))
-          )}
+          )} */}
         </div>
       </div>
       <div className="BookPageTopBooksSectionWrapper">
