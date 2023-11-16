@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookPageMainSection/BookItem/BookItem";
+import BookShlef
 
 const BookPageMainSection = () => {
   const [nytFictionBookData, setNytFictionBookData] = useState([]);
@@ -9,11 +10,12 @@ const BookPageMainSection = () => {
 
   useEffect(() => {
     fetchFictionBooks();
-    fetchNonFictionBooks()
+    fetchNonFictionBooks();
+    console.log(nytFictionBookData);
   }, []);
 
   const fetchFictionBooks = () => {
-    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY  
+    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY;
     fetch(
       "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=" +
         apiKey,
@@ -29,7 +31,7 @@ const BookPageMainSection = () => {
   };
 
   const fetchNonFictionBooks = () => {
-    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY  
+    const apiKey = process.env.REACT_APP_NYT_BOOKS_API_KEY;
     fetch(
       "https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-nonfiction&api-key=" +
         apiKey,
@@ -44,11 +46,24 @@ const BookPageMainSection = () => {
       });
   };
 
- 
-
-
   return (
     <div className="BookPageMainSectionWrapper">
+      <img src={}/>
+      <div className="BookShelfTop">
+        <div className="BookShelfHeadingWrapper">
+          <h1 className="BookShelfHeading">Top Fiction Books</h1>
+          <p>Delve into extraordinary narratives and imaginative realms with our top-rated fiction books that promise thrilling adventures and compelling storytelling.</p>
+        </div>
+        <div className="FirstBookWrapper"></div>
+      </div>
+      <div className="BookShelf"></div>
+      <div className="BookShelfFront"></div>
+
+      <div className="BookShelfBottom">
+        <div className="BookShelfShadow">
+          <div className="BookShelfShadowObject"></div>
+        </div>
+      </div>
       <div className="BookPageTopBooksSectionWrapper">
         <h1>Top Fiction Books</h1>
         <div className="BookPageTopBooksWrapper">
@@ -68,7 +83,7 @@ const BookPageMainSection = () => {
       <div className="BookPageTopBooksSectionWrapper">
         <h1 id="BookPageNonFiction">Top Non-Fiction Books</h1>
         <div className="BookPageTopBooksWrapper">
-        {isLoading ? (
+          {isLoading ? (
             <p>Loading ...</p>
           ) : (
             nytNonFictionBookData?.map((book, index) => (
@@ -87,7 +102,6 @@ const BookPageMainSection = () => {
 };
 
 export default BookPageMainSection;
-
 
 //TODO Make book carousel
 //TODO Add 'jump to non-fiction books' button

@@ -4,10 +4,12 @@
   flex-direction: column;
   padding: 1rem 10% 1rem 10%;
   align-items: center;
-  height: 90vh;
+  justify-content: space-between;
+  min-height: 90vh;
   box-sizing: border-box;
   background-image: url("./../../Assets/bookshelf.png");
-  box-shadow: rgba(0, 0, 0, 0.24) -5px 0px 6px, rgba(0, 0, 0, 0.24) 5px 0px 6px, rgba(0, 0, 0, 0.24) 0px -5px 6px, rgba(0, 0, 0, 0.24) 0px 5px 6px;
+  box-shadow: rgba(0, 0, 0, 0.24) -5px 0px 6px, rgba(0, 0, 0, 0.24) 5px 0px 6px,
+    rgba(0, 0, 0, 0.24) 0px -5px 6px, rgba(0, 0, 0, 0.24) 0px 5px 6px;
   z-index: 10;
 }
 
@@ -22,7 +24,6 @@
   background-color: rgba(37, 37, 37, 0.452);
   border-radius: 10px;
   color: white;
-  
 }
 
 .HeroSectionText {
@@ -37,16 +38,18 @@
 .HeroSectionButtonsWrapper {
   display: flex;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .HeroSectionButton {
-  width: 120px;
+  width: 250px;
   height: 50px;
-  border-radius: 30px;
+  border-radius: 20px;
   font-family: "Gilda Display", serif;
   font-weight: 900;
   font-size: 16px;
   cursor: pointer;
+  border: none;
 }
 
 a {
@@ -59,14 +62,23 @@ a:visited {
 }
 
 .BlackBtn {
-  background-color: black;
+  background: linear-gradient(#777773, #3a3932);
   color: white !important;
 }
 
+.BlackBtn:hover {
+  transition: all 100ms ease-out;
+  background: linear-gradient(#3a3932, #777773);
+}
+
 .WhiteBtn {
-  border: solid 2px black;
-  background-color: white;
+  background: linear-gradient(#eeede5, #acaba4);
   color: black !important;
+  transition: all 100ms ease-out;
+}
+
+.WhiteBtn:hover {
+  background: linear-gradient(#acaba4, #eeede5);
 }
 
 .LogedInBtn {
@@ -83,3 +95,4 @@ a:visited {
   background-repeat: no-repeat;
   background-position: center;
 }
+

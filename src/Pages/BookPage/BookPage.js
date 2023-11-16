@@ -6,7 +6,7 @@ import Footer from '../../Components/Footer/Footer'
 
 const BookPage = () => {
   return (
-    <div>
+    <div className='BookPageWrapper'>
       <Navbar/>
       <BookPageMainSection/>
       <Footer/>
