@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BookPageMainSection.css";
 import BookItem from "../BookPageMainSection/BookItem/BookItem";
-import BookShlef
 
 const BookPageMainSection = () => {
   const [nytFictionBookData, setNytFictionBookData] = useState([]);
@@ -48,22 +47,29 @@ const BookPageMainSection = () => {
 
   return (
     <div className="BookPageMainSectionWrapper">
-      <img src={}/>
-      <div className="BookShelfTop">
-        <div className="BookShelfHeadingWrapper">
-          <h1 className="BookShelfHeading">Top Fiction Books</h1>
-          <p>Delve into extraordinary narratives and imaginative realms with our top-rated fiction books that promise thrilling adventures and compelling storytelling.</p>
+      <div className="BookPageStickyBackground"></div>
+      <div className="BookShelfWrapper">
+        <div className="BookShelfTop">
+          <div className="BookShelfHeadingWrapper">
+            <h1 className="BookShelfHeading">Top Fiction Books</h1>
+            <p>
+              Delve into extraordinary narratives and imaginative realms with
+              our top-rated fiction books that promise thrilling adventures and
+              compelling storytelling.
+            </p>
+          </div>
+          <div className="FirstBookWrapper"></div>
         </div>
-        <div className="FirstBookWrapper"></div>
-      </div>
-      <div className="BookShelf"></div>
-      <div className="BookShelfFront"></div>
+        <div className="BookShelf"></div>
+        <div className="BookShelfFront"></div>
 
-      <div className="BookShelfBottom">
-        <div className="BookShelfShadow">
-          <div className="BookShelfShadowObject"></div>
+        <div className="BookShelfBottom">
+          <div className="BookShelfShadow">
+            <div className="BookShelfShadowObject"></div>
+          </div>
         </div>
       </div>
+
       <div className="BookPageTopBooksSectionWrapper">
         <h1>Top Fiction Books</h1>
         <div className="BookPageTopBooksWrapper">
