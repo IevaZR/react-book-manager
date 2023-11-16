@@ -16,9 +16,9 @@ const FirstBookItem = ({ book, index, openAboutBook }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    // if (book) {
-    //   fetchGoogleBookData();
-    // }
+    if (book) {
+      fetchGoogleBookData();
+    }
     if (currentUser) {
       isBookInUserBooksList();
       isBookInUserFinishedBooksList();
