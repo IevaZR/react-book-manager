@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -31,6 +31,11 @@ const Register = () => {
     useState(false);
   const [passwordTwoMatchErrorMsg, setPasswordTwoMatchErrorMsg] =
     useState(false);
+    const nameInputRef = useRef()
+
+    useEffect(() => {
+      nameInputRef.current.focus()
+    }, [])
 
   const handleInputChange = (event) => {
     setInputValues((prev) => ({
@@ -193,6 +198,7 @@ const Register = () => {
               name="name"
               value={inputValues.name}
               onChange={handleInputChange}
+              ref={nameInputRef}
             ></input>
             {firstNameErrorMsg && (
               <p

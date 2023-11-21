@@ -11,14 +11,17 @@ const UserFinishedBooks = () => {
       <h2 className="UserFinishedListHeading">
         Books That I Have Finished Reading
       </h2>
-      <div className="UserFinishedList">
-        {currentUser &&
-          currentUser.finishedBooks &&
-          currentUser.finishedBooks.map((book) => (
+
+      {currentUser && currentUser.finishedBooks && (
+        <div className="UserFinishedList">
+          {currentUser.finishedBooks.map((book) => (
             <UserFinishedBookItem key={book.title} book={book} />
           ))}
-        {currentUser && currentUser.finishedBooks.length === 0 && <p>No books in My Finished Books List</p>}
-      </div>
+        </div>
+      )}
+      {currentUser && currentUser.finishedBooks.length === 0 && (
+        <p className="NoBooksToShow">No books in My Finished Books List</p>
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./LoginPage.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
-import Photo from "./../../Assets/person-with-a-book.png";
+import Photo from "./../../Assets/open-book-fiction.png";
 import Login from "../../Components/Login/Login";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

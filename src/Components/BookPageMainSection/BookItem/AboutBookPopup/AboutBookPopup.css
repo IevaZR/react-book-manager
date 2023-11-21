@@ -10,7 +10,8 @@
 
 .AboutBookPopup {
   width: 60%;
-  background-color: #d7eedd;
+  background-color: #cbcac3;
+  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,6 +31,7 @@
 
 .AboutBookPopupImage {
   width: 15rem;
+  mix-blend-mode: multiply;
 }
 
 .AboutBookPopupInfoWrapper {

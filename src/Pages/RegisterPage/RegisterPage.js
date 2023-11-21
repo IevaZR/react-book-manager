@@ -2,7 +2,7 @@ import React from 'react'
 import "./RegisterPage.css"
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
-import Photo from "./../../Assets/person-with-a-book.png";
+import Photo from "./../../Assets/open-book-nonfiction.png";
 import Register from '../../Components/Register/Register';
 
 const RegisterPage = () => {

@@ -60,15 +60,19 @@ const BookPageMainSection = () => {
   return (
     <div className="BookPageMainSectionWrapper">
       <div className="BookPageStickyBackground">
-        <div className="BookShelfWrapper">
+        <div className="BookShelfWrapper" id="FictionBooks">
           <div className="BookShelfTop">
-            <div className="BookShelfHeadingWrapper">
-              <h1 className="BookShelfHeading">Top Fiction Books</h1>
-              <p>
-                Delve into extraordinary narratives and imaginative realms with
-                our top-rated fiction books that promise thrilling adventures
-                and compelling storytelling.
-              </p>
+            <div className="BookShelfLeftInfoWrapper">
+              <div className="BookShelfHeadingWrapper">
+                <h1 className="BookShelfHeading">Top Fiction Books</h1>
+                <p>
+                  Delve into extraordinary narratives and imaginative realms
+                  with our top-rated fiction books that promise thrilling
+                  adventures and compelling storytelling.
+                </p>
+              </div>
+
+              <a href="#NonFictionBooks">SHOW NON-FICTION BOOKS</a>
             </div>
             {isLoading ? (
               <p>Loading ...</p>
@@ -106,18 +110,22 @@ const BookPageMainSection = () => {
             </div>
           </div>
         </div>
-        <div className="BookShelfWrapper">
+        <div className="BookShelfWrapper" id="NonFictionBooks">
           <div className="BookShelfTop">
-            <div className="BookShelfHeadingWrapper">
-              <h1 className="BookShelfHeading">Top Non-Fiction Books</h1>
-              <p>
-                Explore the realm of reality with our collection of top
-                non-fiction books. Dive into captivating narratives, insightful
-                memoirs, and thought-provoking accounts that enlighten and
-                inform, offering a rich array of knowledge and perspectives on
-                various subjects
-              </p>
+            <div className="BookShelfLeftInfoWrapper">
+              <div className="BookShelfHeadingWrapper">
+                <h1 className="BookShelfHeading">Top Non-Fiction Books</h1>
+                <p>
+                  Explore the realm of reality with our collection of top
+                  non-fiction books. Dive into captivating narratives,
+                  insightful memoirs, and thought-provoking accounts that
+                  enlighten and inform, offering a rich array of knowledge and
+                  perspectives on various subjects
+                </p>
+              </div>
+              <a href="#FictionBooks">SHOW FICTION BOOKS</a>
             </div>
+
             {isLoading ? (
               <p>Loading ...</p>
             ) : (

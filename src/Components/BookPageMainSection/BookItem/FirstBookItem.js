@@ -23,9 +23,9 @@ const FirstBookItem = ({ book, index, openAboutBook }) => {
       isBookInUserBooksList();
       isBookInUserFinishedBooksList();
     }
-    setBookCover(
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU"
-    );
+    // setBookCover(
+    //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGC9MuJKNcUQVn1DB9w57JWZkTrjhLbKx-Q&usqp=CAU"
+    // );
     console.log(book);
   }, []);
 
@@ -125,7 +125,7 @@ const FirstBookItem = ({ book, index, openAboutBook }) => {
             </div>
           )}
           {!currentUser && (
-            <button className="BookItemLinkToLoginBtn">
+            <button className="BookItemLinkToLoginBtn WhiteBtn">
               <Link to="/login">Add to My Books</Link>
             </button>
           )}

@@ -1,16 +1,23 @@
-.AddToFavouritesBtn, .BookItemLinkToLoginBtn {
-  height: 50px;
-  border-radius: 20px;
+.AddToFavouritesBtn,
+.BookItemLinkToLoginBtn {
+  width: 150px;
+  height: 30px;
+  border-radius: 30px;
   font-family: "Gilda Display", serif;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(#777773, #3a3932);
-  color: white !important;
-  }
+  color: black;
+}
 
-  
-  .WhiteBtn:hover {
-    background: linear-gradient(#acaba4, #eeede5);
-  }
+.WhiteBtn {
+  background: linear-gradient(#eeede5, #acaba4);
+  color: black !important;
+  transition: all 100ms ease-out;
+}
+
+.WhiteBtn:hover {
+  background: linear-gradient(#acaba4, #eeede5);
+}
+

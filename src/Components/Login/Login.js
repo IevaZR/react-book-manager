@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -14,6 +14,11 @@ const Login = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
+  const emailInputRef = useRef()
+
+  useEffect(() => {
+    emailInputRef.current.focus()
+  },[])
 
   const handleInputChange = (event) => {
     setInputData((prev) => ({
@@ -64,6 +69,7 @@ const Login = () => {
           name="email"
           value={inputData.email}
           onChange={handleInputChange}
+          ref={emailInputRef}
         ></input>
         <label>Password</label>
         <input

@@ -9,13 +9,17 @@ const UserReadingList = () => {
   return (
     <div className="UserReadingListWrapper">
       <h2 className="UserReadingListHeading">Books That I Want To Read</h2>
-      <div className="UserReadingList">
-        {currentUser && currentUser.readingListBooks &&
-          currentUser.readingListBooks.map((book) => (
+
+      {currentUser && currentUser.readingListBooks && (
+        <div className="UserReadingList">
+          {currentUser.readingListBooks.map((book) => (
             <UserBookItem key={book.title} book={book} />
           ))}
-          {currentUser && currentUser.readingListBooks.length === 0 && <p>No books in My Reading List</p>}
-      </div>
+        </div>
+      )}
+      {currentUser && currentUser.readingListBooks.length === 0 && (
+        <p className="NoBooksToShow">No books in My Reading List</p>
+      )}
     </div>
   );
 };

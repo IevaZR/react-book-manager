@@ -45,7 +45,7 @@ const Footer = () => {
         {showThankYouMsg && <p>Thank you for subscribing!</p>}
         {showErrorMsg && <p className="ErrorMsg">Email not valid</p>}
 
-        <button type="button" onClick={handleSubscribeBtnClick}>
+        <button type="button" className="FooterButton BlackBtn" onClick={handleSubscribeBtnClick}>
           Submit
         </button>
       </div>

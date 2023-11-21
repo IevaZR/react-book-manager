@@ -41,7 +41,7 @@ const AddToFavouritesBtn = ({ book, bookCover, updatedUserBooksList }) => {
   };
 
   return (
-    <button className="AddToFavouritesBtn" type="button" onClick={addToMyBooks}>
+    <button className="AddToFavouritesBtn WhiteBtn" type="button" onClick={addToMyBooks}>
       Add to My Books
     </button>
   );

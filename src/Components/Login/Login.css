@@ -38,16 +38,21 @@
 .LoginFormBtn {
     width: 200px;
     height: 35px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 1rem 0 0 0;
-    font-family: 'Gilda Display', serif;
+    font-family: "Gilda Display", serif;
     font-weight: 900;
     font-size: 20px;
-    border: solid 1px black;
-    background-color: white;
-    color: black;
     cursor: pointer;
+    border: none;
+    background: linear-gradient(#f7f6f0, #d0cfc7);
+  color: black !important;
+  transition: all 100ms ease-out;
 }
+
+.LoginFormBtn:hover {
+    background: linear-gradient( #d0cfc7, #f7f6f0);
+  }
 
 .LinkToRegister {
     font-family: 'Gilda Display', serif;
