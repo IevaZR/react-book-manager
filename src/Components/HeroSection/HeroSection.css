@@ -99,3 +99,48 @@ a:visited {
   background-position: center;
 }
 
+@media screen and (max-width: 908px) {
+  .HeroSectionWrapper {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .HeroSectionWrapper {
+    padding: 0.5rem;
+  }
+  .HeroSectionHeading {
+    font-size: 65px
+  }
+
+  .HeroSectionButton {
+    width: 150px;
+    height: 35px ;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .HeroSectionHeading {
+    font-size: 55px
+  }
+
+  .HeroSectionButton {
+    width: 150px;
+    height: 35px ;
+  }
+
+  .HeroSectionText {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .HeroSectionHeading {
+    font-size: 50px
+  }
+
+  .HeroSectionButton {
+    width: 150px;
+    height: 35px ;
+  }
+}

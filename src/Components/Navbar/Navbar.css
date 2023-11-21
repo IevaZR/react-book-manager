@@ -44,3 +44,9 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 679px) {
+    .NavbarLinksWrapper {
+        gap: 1rem
+    }
+}

@@ -81,3 +81,23 @@
   font-weight: 400;
   margin: 0;
 }
+
+@media screen and (max-width: 579px) {
+  .FooterWrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .FooterNewsletterWrapper {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .FooterNewsletterWrapper h6 {
+    text-align: center;
+  }
+  
+  .FooterContactInfoWrapper {
+    align-items: center;
+  }
+}
