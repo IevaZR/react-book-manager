@@ -18,10 +18,12 @@ const UserPage = () => {
   return (
     <div className="UserPageWrapper">
       <Navbar />
-      <div className="UserPageMainSectionWrapper">
-        <h1>Hello Username!</h1>
-        <UserProfile />
-      </div>
+      {currentUser && (
+        <div className="UserPageMainSectionWrapper">
+          <h1>Hello, {currentUser.firstName}!</h1>
+          <UserProfile />
+        </div>
+      )}
       <Footer />
     </div>
   );

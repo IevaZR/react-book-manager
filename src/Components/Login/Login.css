@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 500px;
+    width: 50%;
 }
 
 .LoginWrapper h3 {
@@ -18,17 +18,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
 }
 
 .LoginForm label {
     font-family: 'Gilda Display', serif;
     font-size: 18px;
     margin: 0 0 0.5rem 0;
+    align-self: center;
 }
 
 .LoginForm input {
-    width: 500px;
     margin: 0 0 1rem 0;
     border-radius: 10px;
     border: 0.5px solid black;
@@ -38,6 +39,7 @@
 .LoginFormBtn {
     width: 200px;
     height: 35px;
+    align-self: center;
     border-radius: 20px;
     margin: 1rem 0 0 0;
     font-family: "Gilda Display", serif;
@@ -60,10 +62,36 @@
     margin: 3rem 0 0 0;
     text-decoration: none;
     color: black;
+    text-align: center;
 }
 
 .LoginErrorMsg {
     margin: 0;
     color: red;
     font-size: 10px;
+    text-align: center;
 }
+
+@media screen and (max-width: 2000px) {
+    .LoginWrapper {
+        min-width: none;
+    }
+
+    .LoginWrapper h3 {
+        font-size: 25px;
+    }
+
+    .LoginForm label {
+        font-size: 15px;
+    }
+
+    .LoginFormBtn {
+        font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .LoginWrapper {
+      width: 70%;
+    }
+  }

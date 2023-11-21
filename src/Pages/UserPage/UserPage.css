@@ -26,3 +26,9 @@
 .UserPageMainSectionWrapper h1 {
   font-family: "Gilda Display", serif;
 }
+
+@media screen and (max-width: 768px) {
+  .UserPageMainSectionWrapper {
+    padding: 0.5rem 2rem 2rem 2rem;
+  }
+}

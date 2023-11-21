@@ -31,3 +31,30 @@
 .RegisterPageImageWrapper img {
     width: 500px;
 }
+
+@media screen and (max-width: 2000px) {
+    .RegisterPageImageWrapper img {
+      width: 450px;
+    }
+  }
+  
+  @media screen and (max-width: 1023px) {
+    .RegisterPageImageWrapper img {
+      width: 350px;
+    }
+  }
+  @media screen and (max-width: 899px) {
+    .RegisterPageMainSectionWrapper {
+      flex-direction: column;
+    }
+  
+    .RegisterWrapper {
+      width: 70%;
+    }
+  }
+  
+  @media screen and (max-width: 479px) {
+    .RegisterPageImageWrapper img {
+      width: 250px;
+    }
+  }
