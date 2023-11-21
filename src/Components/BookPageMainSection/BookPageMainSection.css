@@ -54,6 +54,7 @@ html {
   padding: 2rem 2rem 0 2rem;
   display: flex;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .BookShelfLeftInfoWrapper {
@@ -145,4 +146,29 @@ html {
   grid-column-gap: 1.5rem;
   grid-row-gap: 1rem;
   justify-content: center;
+}
+
+@media screen and (max-width: 819px) {
+  .BookShelfTop {
+    flex-direction: column;
+  }
+
+  .BookShelfLeftInfoWrapper {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .BookShelfHeadingWrapper {
+    align-items: center;
+  }
+
+  .BookShelfHeading {
+    align-self: center;
+  }
+
+  .BookShelfLeftInfoWrapper p {
+    align-self: center;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
 }

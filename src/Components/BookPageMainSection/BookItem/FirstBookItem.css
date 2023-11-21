@@ -120,3 +120,17 @@
 .WhiteBtn:hover {
   background: linear-gradient(#acaba4, #eeede5);
 }
+
+@media screen and (max-width: 515px) {
+  .FirstBookWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .FirstBookImageWrapper {
+    margin-top: 2rem;
+  }
+  
+  .FirstBookInfoWeeks {
+    margin-bottom: 0.5rem;
+  }
+}
