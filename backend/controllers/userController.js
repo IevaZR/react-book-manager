@@ -100,12 +100,28 @@ export const loginUser = async (req, res) => {
       return res.status(404).send("Username or Password is incorrect!");
     }
 
+    const token = jwt.sign({ id: foundUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
     if (isUserPasswordCorrect) {
       console.log("Logged in");
-      res.status(200).send("Authorized");
+      res
+        .cookie("session_token", token, { httpOnly: true })
+        .status(200)
+        .send("Authorized");
     }
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
+  }
+};
+
+export const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("session_token");
+    res.status(200).send("Logged out successfully");
+  } catch (error) {
+    console.log(error);
   }
 };
