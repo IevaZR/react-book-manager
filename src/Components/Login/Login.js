@@ -34,6 +34,8 @@ const Login = () => {
         inputData
       );
       if (data === "Authorized") {
+        document.cookie = `session_token=${data}`
+        
         fetchUserData();
         setTimeout(() => {
           navigate("/user");
@@ -54,6 +56,7 @@ const Login = () => {
       console.log(user);
       dispatch(setCurrentUser(user));
       setLoginErrorMsg(false);
+      localStorage.setItem('user', JSON.stringify(user))
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +88,7 @@ const Login = () => {
           Log In
         </button>
       </form>
-
+          
       <Link to="/register" className="LinkToRegister">
         Or click here to register
       </Link>

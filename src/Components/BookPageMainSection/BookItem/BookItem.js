@@ -16,7 +16,7 @@ const BookItem = ({ book, index, openAboutBook }) => {
 
   useEffect(() => {
     if (book) {
-      // fetchGoogleBookData();
+      fetchGoogleBookData();
     }
     if (currentUser) {
       isBookInUserBooksList();
