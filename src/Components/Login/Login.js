@@ -53,7 +53,7 @@ const Login = () => {
         `http://localhost:3009/user/get-user/${inputData.email}`
       );
       const user = data.data[0];
-      console.log(user);
+      
       dispatch(setCurrentUser(user));
       setLoginErrorMsg(false);
       localStorage.setItem('user', JSON.stringify(user))

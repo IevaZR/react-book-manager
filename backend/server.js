@@ -13,7 +13,9 @@ const app = express();
 const port = 3009;
 
 app.use(express.json());
-app.use(cors({}));
+app.use(cors({
+  origin: ["http://localhost:3000/", "https://book-manager-app-t7g0.onrender.com"]
+}));
 
 dotenv.config();
 
